@@ -8,6 +8,9 @@ const FoodtypeModel = require("./FoodtypeModel");
 const RestaurantSchema = new mongoose.Schema({
     name: String,
     geolocation: String,
+    phone: String,
+    mail: String,
+    location: String,
     city: {
         type: Schema.Types.ObjectId,
         ref: 'CityModel',
@@ -21,15 +24,9 @@ const RestaurantSchema = new mongoose.Schema({
     courses: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'CourseModel'
+            ref: 'CourseModel',
         },
-    ],
-    contact: {
-        city: Boolean,
-        phone: String,
-        mail: String,
-        location: String,
-    },
+    ]
 });
 
 module.exports = mongoose.model("Restaurants", RestaurantSchema);

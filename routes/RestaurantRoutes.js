@@ -13,10 +13,11 @@ router.post("/", async (req, res) => {
         .create({
             name: req.body.name,
             geolocation: req.body.geolocation,
+            phone: req.body.phone,
+            mail: req.body.mail,
             city: req.body.city,
             foodtype: req.body.foodstyle,
-            courses: req.body.courses,
-            contact: req.body.contact,
+            courses: req.body.courses
         })
         .then(() => {
             res.status(201).send({
