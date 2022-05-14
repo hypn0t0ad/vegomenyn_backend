@@ -1,25 +1,39 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"),
+Schema = mongoose.Schema
+
+const CityModel = require("./CityModel");
+const CourseModel = require("./CourseModel");
+const FoodtypeModel = require("./FoodtypeModel");
+
+/* const City  = mongoose.model('City', citySchema);
+const Course = mongoose.model('Course', courseSchema);
+const Foodtype = mongoose.model('Foodtype', foodtypeSchema); */
 
 const RestaurantSchema = new mongoose.Schema({
-    id: Number,
     name: String,
-    foodStyle: [
+    geolocation: String,
+    city: {
+        type: Schema.Types.ObjectId,
+        ref: 'CityModel',
+    },
+    foodType: [
         {
-            type: String,
+            type: Schema.Types.ObjectId,
+            ref: 'FoodtypeModel',
         },
     ],
     courses: [
         {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Courses",
+            type: Schema.Types.ObjectId,
+            ref: 'CourseModel'
         },
     ],
     contact: {
         city: Boolean,
         phone: String,
         mail: String,
-        location: String
-    }
+        location: String,
+    },
 });
 
 module.exports = mongoose.model("Restaurants", RestaurantSchema);

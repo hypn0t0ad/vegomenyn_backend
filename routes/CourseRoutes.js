@@ -4,7 +4,7 @@ const router = express.Router();
 // Import model
 const courseDB = require("../models/CourseModel");
 
-//Add a user
+//Add a course
 //POST /api/users - ADD COURSE
 router.post("/", async (req, res) => {
     try {
@@ -14,6 +14,7 @@ router.post("/", async (req, res) => {
             name: req.body.name,
             image: req.body.image,
             price: req.body.price,
+            description: req.body.description,
         })
         .then(() => {
             res.status(201).send({
@@ -31,6 +32,30 @@ router.post("/", async (req, res) => {
         res.status(500).send({
             status: false,
             message: "Server error while adding course",
+        });
+    }
+});
+
+//Get all course
+//GET /api/city - GET ALL courses
+router.get("/", async (req, res) => {
+    try {
+        await courseDB
+        .find()
+        .exec()
+        .then((doc) => {
+            res.status(200).send(doc);
+        })
+        .catch((error) => {
+            res.status(500).send({
+                status: false,
+                message: "Unable to get all courses",
+            });
+        });
+    } catch (err) {
+        res.status(500).send({
+            status: false,
+            message: "Server error while getting courses"
         });
     }
 });

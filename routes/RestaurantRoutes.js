@@ -11,9 +11,10 @@ router.post("/", async (req, res) => {
         // Save restaurant to DB
         await restaurantDB
         .create({
-            id: req.body.id,
             name: req.body.name,
-            foodstyle: req.body.foodstyle,
+            geolocation: req.body.geolocation,
+            city: req.body.city,
+            foodtype: req.body.foodstyle,
             courses: req.body.courses,
             contact: req.body.contact,
         })
