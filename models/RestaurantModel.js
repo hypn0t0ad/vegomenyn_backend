@@ -5,10 +5,6 @@ const CityModel = require("./CityModel");
 const CourseModel = require("./CourseModel");
 const FoodtypeModel = require("./FoodtypeModel");
 
-/* const City  = mongoose.model('City', citySchema);
-const Course = mongoose.model('Course', courseSchema);
-const Foodtype = mongoose.model('Foodtype', foodtypeSchema); */
-
 const RestaurantSchema = new mongoose.Schema({
     name: String,
     geolocation: String,
