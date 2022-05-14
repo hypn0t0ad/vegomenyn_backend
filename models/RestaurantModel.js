@@ -1,5 +1,5 @@
-const mongoose = require("mongoose"),
-Schema = mongoose.Schema
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const CityModel = require("./CityModel");
 const CourseModel = require("./CourseModel");
@@ -10,21 +10,20 @@ const RestaurantSchema = new mongoose.Schema({
     geolocation: String,
     phone: String,
     mail: String,
-    location: String,
     city: {
         type: Schema.Types.ObjectId,
-        ref: 'CityModel',
+        ref: "CityModel"
     },
-    foodType: [
+    foodTypes: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'FoodtypeModel',
+            ref: "FoodtypeModel"
         },
     ],
     courses: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'CourseModel',
+            ref: "CourseModel"
         },
     ]
 });

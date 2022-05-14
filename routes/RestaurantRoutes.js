@@ -4,8 +4,8 @@ const router = express.Router();
 // Import model
 const restaurantDB = require("../models/RestaurantModel");
 
-//Add a user
-//POST /api/users - ADD RESTAURANT
+//Add a restaurant
+//POST /api/restaurants - ADD RESTAURANT
 router.post("/", async (req, res) => {
     try {
         // Save restaurant to DB
@@ -15,9 +15,9 @@ router.post("/", async (req, res) => {
             geolocation: req.body.geolocation,
             phone: req.body.phone,
             mail: req.body.mail,
-            city: req.body.city,
-            foodtype: req.body.foodstyle,
-            courses: req.body.courses
+            city: req.body.city, //object
+            foodtypes: req.body.foodtypes, //list
+            courses: req.body.courses //list
         })
         .then(() => {
             res.status(201).send({

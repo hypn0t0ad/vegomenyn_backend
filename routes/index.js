@@ -16,7 +16,7 @@ router.use("/users", userRoutes);
 router.use("/restaurants", restaurantRoutes);
 router.use("/courses", courseRoutes);
 router.use("/foodtypes", foodtypeRoutes);
-router.use("/cities", userRoutes);
+router.use("/cities", cityRoutes);
 
 
 module.exports = router;

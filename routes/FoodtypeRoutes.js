@@ -2,13 +2,13 @@ const express = require("express");
 const router = express.Router();
 
 // Import model
-const foodtypeDB = require("../models/CourseModel");
+const foodtypeDB = require("../models/FoodtypeModel");
 
 //Add a foodtype
 //POST /api/users - ADD FOODTYPE
 router.post("/", async (req, res) => {
     try {
-        // Save course to DB
+        // Save foodtype to DB
         await foodtypeDB
         .create({
             name: req.body.name,
@@ -33,8 +33,8 @@ router.post("/", async (req, res) => {
     }
 });
 
-//Get all course
-//GET /api/city - GET ALL courses
+//Get all foodtypes
+//GET /api/city - GET ALL FOODTYPES
 router.get("/", async (req, res) => {
     try {
         await foodtypeDB
@@ -46,13 +46,13 @@ router.get("/", async (req, res) => {
         .catch((error) => {
             res.status(500).send({
                 status: false,
-                message: "Unable to get all foodtype",
+                message: "Unable to get all foodtypes",
             });
         });
     } catch (err) {
         res.status(500).send({
             status: false,
-            message: "Server error while getting foodtype"
+            message: "Server error while getting foodtypes"
         });
     }
 });
