@@ -15,9 +15,8 @@ router.post("/", async (req, res) => {
             geolocation: req.body.geolocation,
             phone: req.body.phone,
             mail: req.body.mail,
-            city: req.body.city, //object
-            foodtypes: req.body.foodtypes, //list
-            courses: req.body.courses //list
+            city: req.body.city,
+            courses: req.body.courses
         })
         .then(() => {
             res.status(201).send({

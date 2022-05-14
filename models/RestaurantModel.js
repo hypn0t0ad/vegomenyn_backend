@@ -1,9 +1,4 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-
-const CityModel = require("./CityModel");
-const CourseModel = require("./CourseModel");
-const FoodtypeModel = require("./FoodtypeModel");
 
 const RestaurantSchema = new mongoose.Schema({
     name: String,
@@ -11,21 +6,10 @@ const RestaurantSchema = new mongoose.Schema({
     phone: String,
     mail: String,
     city: {
-        type: Schema.Types.ObjectId,
-        ref: "CityModel"
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Cities" 
     },
-    foodTypes: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "FoodtypeModel"
-        },
-    ],
-    courses: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "CourseModel"
-        },
-    ]
+    courses: Object
 });
 
 module.exports = mongoose.model("Restaurants", RestaurantSchema);
