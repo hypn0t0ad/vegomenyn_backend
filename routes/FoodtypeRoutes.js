@@ -12,6 +12,7 @@ router.post("/", async (req, res) => {
         await foodtypeDB
         .create({
             name: req.body.name,
+            origin: req.body.origin
         })
         .then(() => {
             res.status(201).send({
