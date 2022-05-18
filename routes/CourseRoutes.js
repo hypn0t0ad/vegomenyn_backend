@@ -15,6 +15,7 @@ router.post("/", async (req, res) => {
             image: req.body.image,
             price: req.body.price,
             description: req.body.description,
+            foodtypes: req.body.id
         })
         .then(() => {
             res.status(201).send({

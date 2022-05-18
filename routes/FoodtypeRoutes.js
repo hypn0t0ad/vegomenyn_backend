@@ -11,8 +11,7 @@ router.post("/", async (req, res) => {
         // Save foodtype to DB
         await foodtypeDB
         .create({
-            name: req.body.name,
-            origin: req.body.origin
+            name: req.body.name
         })
         .then(() => {
             res.status(201).send({
