@@ -6,8 +6,7 @@ const CourseSchema = new mongoose.Schema({
     image: { type: String, required: false },
     price: { type: Number, required: true },  
     description: { type: String, required: false, maxlength: 500 },
-    //foodtypes: [{ type: Schema.Types.ObjectId, ref: 'Foodtypes' }],
-    foodtypes: [{ type: String }],
+    foodtypes: [{ type: Schema.Types.ObjectId, ref: 'Foodtypes' }],
     dateUpdated: { type: Date, default: Date.now() }
 });
 
