@@ -8,7 +8,7 @@ const RestaurantSchema = new mongoose.Schema({
     mail: { type: String, required: true },
     dateUpdated: { type: Date, default: Date.now() },
     city: { type: Schema.Types.ObjectId, ref: "Cities" },
-    courses: [{ type: Schema.Types.ObjectId, ref: 'Courses' }]
+    courses: { id: [{ type: Schema.Types.ObjectId, ref: 'Courses', required: false }] }
 });
 
 module.exports = mongoose.model("Restaurants", RestaurantSchema);
